@@ -38,6 +38,24 @@ def main():
                 filterTemp.append(token)
         if(filterTemp):
             filtered13.append(filterTemp)
+            
+    host13 = []
+    for tweet in filtered13:
+        hostTemp = []
+        if 'host' in tweet:
+            host13.append(tweet)
+        
+    tokenString = ""
+    tweetString = ""
+    for tweet in host13:
+        for token in tweet:
+            tokenString += token + ' '
+        tweetString += tokenString
+
+    #nameregex = re.compile(r'[A-Z][a-zA-Z]*')
+    potentialNames = nameregex.findall(tweetString)
+    #potentialNames
+    list([bigrams(word_tokenize(s)) for s in sent_tokenize(tweetString)])
 
     #reader = TwitterCorpusReader(root='', fileids='gg2013.json')
 
