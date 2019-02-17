@@ -2,7 +2,7 @@
 
 import json
 import helpers
-import Counter
+from collections import Counter
 import awardsarr
 import getawards
 
