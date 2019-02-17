@@ -2,14 +2,16 @@ import json
 import pandas
 from pandas.io.json import json_normalize
 import csv
-import Counter
+from collections import Counter
 import random
 import re
 import awardsarr
 
+
 def loadJson(year, t):
     name = 'results/' + year + "/" + t + '.json'
     return json.load(open(name))
+
 
 def createCSV(year):
     inputname = "gg" + year + ".json"
@@ -21,6 +23,7 @@ def createCSV(year):
         wr = csv.writer(resultFile, quoting=csv.QUOTE_ALL)
         wr.writerow(tweets)
 
+
 def loadTweets(year):
     name = 'csvs/tweets' + year + '.csv'
     with open(name, 'r') as f:
@@ -28,6 +31,7 @@ def loadTweets(year):
         data = list(reader)
     data = data[0]
     return data
+
 
 def removeRT(year):
     data = loadTweets(year)
@@ -44,17 +48,10 @@ def removeRT(year):
     with open('countDicts/d' + year + '.json', 'w') as fp:
         json.dump(tweets, fp)
 
+
 def loadfromJson(year):
     name = 'couintDicts/d' + year + '.json'
     return json.load(open(name))
-
-def containsCerName(phrase):
-    name = awardsarr.ceremony_name
-    bad_worst = awardsStopwords()
-    for bw in bad_words:
-        if bw in phrase:
-            return True
-    False
 
 def awardStopwords():
     name = awardsarr.ceremony_name
@@ -63,8 +60,17 @@ def awardStopwords():
     for nw in name_words:
         stops.append(nw)
         stops.append(nw.capitalize())
-        if nw[len(nw)-1] =='s':
+        if nw[len(nw)-1] == 's':
             stops.append(nw[:len(nw)-1])
     name = ''.join(name_words)
     stops.append(name)
     return stops
+
+
+def containsCerName(phrase):
+    #name = awardsarr.ceremony_name
+    bad_words = awardStopwords()
+    for bw in bad_words:
+        if bw in phrase:
+            return True
+    False
