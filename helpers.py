@@ -68,7 +68,7 @@ def awardStopwords():
 
 
 def containsCerName(phrase):
-    name = awardsarr.ceremony_name
+    #name = awardsarr.ceremony_name
     bad_words = awardStopwords()
     for bw in bad_words:
         if bw in phrase:
