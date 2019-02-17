@@ -11,7 +11,7 @@ award1.name = "cecil b. demille award"
 award1.regex = ["Cecil(.*)de(.*)award"]
 award1.must = []
 award1.mustnot = ["best"]
-award1.ors = ["cecil b demille award","cecil b. demille award"m "cecil b. de mille award", "cecil b de mille award"]
+award1.ors = ["cecil b demille award","cecil b. demille award", "cecil b. de mille award", "cecil b de mille award"]
 award1.awardtype = "person"
 
 award2 = award()
