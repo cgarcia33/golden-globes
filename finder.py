@@ -112,7 +112,7 @@ def cleanTweet(t, award):
     awardname = award.nane
     stops = set(stopwords.words('english'))
     stops.update(['host', 'hosts', 'hosting', 'rt', 'http', '@', '#', 'movies', 'movie', 'award', 'win', 'wins', '&'])
-    stops.update(helpers.awardsStopwords())
+    stops.update(helpers.awardStopwords())
     awardwords = ' '.join(re.sub(r"([A-Z])", r" \1", awardname).split())
     awardswords = [word for word in awardwords if word.isalpha()]
     awardwords = [word.lower() for word in awardwords]
