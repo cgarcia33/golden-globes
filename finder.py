@@ -9,7 +9,7 @@ import awardsarr
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 ia = IMDb()
-import Counter
+from collections import Counter
 
 def getWinner(award, t, worddict, count, wintweets):
     if award.awardtype == 'movie':
